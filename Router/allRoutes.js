@@ -4,6 +4,7 @@ import Route from "./Route.js";
 export const allRoutes = [
     new Route("/", "Accueil", "/pages/home.html"),
     new Route("/galerie", "Galerie", "/pages/galerie.html"),
+    new Route("/signin", "Galerie", "/pages/signin.html"),
     /*new Route("/Galerie", "Galerie", "/pages/gallerie.html", "/js/galerie.js"),*/
 ];
     
