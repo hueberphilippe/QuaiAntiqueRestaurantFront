@@ -1,13 +1,14 @@
 import Route from "./Route.js";
 import { allRoutes, websiteName } from "./allRoutes.js";
 
+/*
 //Debug
 console.log("allRoutes à l'entrée du Router:");
 for (const element of allRoutes) {
     console.log(element);    
 }
 //Fin débug
-
+*/
 
 // Création d'une route pour la page 404 (page introuvable)
 const route404 = new Route("/pages", "Page introuvable", "./pages/404.html");
@@ -25,7 +26,7 @@ const getRouteByUrl = (url) => {
     if (currentRoute != null) {
         return currentRoute;
     } else {
-        console.log("currentRoute dans getRouteByUrl: " + currentRoute);
+        //console.log("currentRoute dans getRouteByUrl: " + currentRoute);
         return route404;
     }
 };
@@ -33,13 +34,16 @@ const getRouteByUrl = (url) => {
 // Fonction pour charger le contenu de la page
 const LoadContentPage = async () => {
     const path = window.location.pathname;
-    console.log("window.location.pathname: " + path); //Debug
+    //console.log("window.location.pathname: " + path); //Debug
     // Récupération de l'URL actuelle
     const actualRoute = getRouteByUrl(path);
+    /*
+    //Debug
     console.log("actualRoute: ");
     for (const key in actualRoute) {
         console.log(actualRoute[key]);
     }
+    */
 
 
     // Récupération du contenu HTML de la route
