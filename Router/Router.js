@@ -37,6 +37,24 @@ const LoadContentPage = async () => {
     //console.log("window.location.pathname: " + path); //Debug
     // Récupération de l'URL actuelle
     const actualRoute = getRouteByUrl(path);
+
+    //Vérifier les droits d'accès à la page
+    const allRolesArray = actualRoute.authorize;
+
+    if (allRolesArray.length > 0) {
+        if (allRolesArray.includes("disconnected")) {
+            if (isConnected()) {
+                window.location.replace("/");
+            }
+        }
+        else {
+            const roleUser = getRole();
+            if (!allRolesArray.includes(roleUser)) {
+                window.location.replace("/");
+            }
+        }
+    }
+
     /*
     //Debug
     console.log("actualRoute: ");
@@ -64,6 +82,9 @@ const LoadContentPage = async () => {
 
     // Changement du titre de la page
     document.title = actualRoute.title + " - " + websiteName;
+
+    //Afficher et masquer les éléments en fonction du role
+    showAndHideElementsForRoles();
 };
 
 // Fonction pour gérer les événements de routage (clic sur les liens)
