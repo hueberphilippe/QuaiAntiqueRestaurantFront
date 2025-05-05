@@ -54,7 +54,7 @@ function isConnected() {
 const RoleCookieName = "role"
 const signoutBtn = document.getElementById("signout-btn");
 
-signoutBtn?.addEventListener('click', signout);
+signoutBtn.addEventListener('click', signout);
 
 function getRole() {
     return getCookie(RoleCookieName);
@@ -104,4 +104,11 @@ function showAndHideElementsForRoles() {
                 break;
         }
     })
+}
+
+//Fonction pour convertir le Html en texte (Attaque XSS)
+function sanitizeHtml(text) {
+    const tempHtml = document.createElement('div');
+    tempHtml.textContent = text;
+    return tempHtml.innerHTML;
 }

@@ -31,8 +31,8 @@ function checkCredentials() {
             if (response.ok) {
                 return response.json();
             } else {
-                mailInput?.classList.add("is-invalid");
-                passwordInput?.classList.add("is-invalid");
+                mailInput.classList.add("is-invalid");
+                passwordInput.classList.add("is-invalid");
             }
         })
         .then(result => {
