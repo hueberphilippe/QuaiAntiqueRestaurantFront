@@ -115,7 +115,6 @@ function inscrireUtilisateur() {
 
     fetch(apiUrl+"registration", requestOptions)
         .then(response => {
-            //debugger;
             if (response.ok) {
                 return response.json();
             } else {

@@ -1,5 +1,3 @@
-//alert("Hello");
-
 const mailInput = document.getElementById("EmailInput");
 const passwordInput = document.getElementById("PasswordInput");
 const btnSingin = document.getElementById("btnSignin");
@@ -30,7 +28,6 @@ function checkCredentials() {
 
     fetch(apiUrl+"login", requestOptions)
         .then(response => {
-            //debugger;
             if (response.ok) {
                 return response.json();
             } else {
@@ -42,11 +39,12 @@ function checkCredentials() {
             const token = result.apiToken;
             //placer ce token en cookie
             setToken(token);
-            //setCookie(RoleCookieName, "client", 7);
             setCookie(RoleCookieName, result.roles[0], 7);            
             window.location.replace("/");
         })
         .catch(error => console.log('error', error));
 
 }
+
+
 
