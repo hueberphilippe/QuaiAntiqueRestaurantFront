@@ -1,3 +1,7 @@
+const apiUrl = "http://127.0.0.1:8000/api/";
+
+
+
 //Fonctions de gestion des cookies (Set - Get -erase)
 function setCookie(name, value, days) {
     var expires = "";
@@ -57,7 +61,7 @@ if (isConnected()) {
 */
 
 //Gestion de la déconnexion
-const RoleCookieName = "accesstoken"
+const RoleCookieName = "role"
 const signoutBtn = document.getElementById("signout-btn");
 
 signoutBtn?.addEventListener('click', signout);
